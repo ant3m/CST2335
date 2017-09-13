@@ -3,4 +3,10 @@
     <string name="app_name">Lab1</string>
     <string name="hello_message">Namaste!</string>
     <string name="button_text">Mein ek button hu</string>
+    <string name="login">Login</string>
+    <string name="login_name">Login Naam</string>
+    <string name="password">Password</string>
+    <string name="radiobutton">RadioButton</string>
+    <string name="checkbox">CheckBox</string>
+    <string name="what_does_this_do">Ye kya karta hai?</string>
 </resources>
