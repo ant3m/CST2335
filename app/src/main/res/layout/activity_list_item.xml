@@ -8,26 +8,6 @@
     android:rowCount="2"
     tools:context="com.stan.androidlabs.ListItemActivity">
 
-    <RadioButton
-        android:id="@+id/radioButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
-        android:layout_marginBottom="8dp"
-        android:gravity="fill"
-        android:text="@string/radiobutton"
-        android:textSize="16sp" />
-
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
-        android:layout_marginBottom="8dp"
-        android:gravity="fill"
-        android:text="@string/checkbox"
-        android:textSize="16sp" />
-
     <Switch
         android:id="@+id/switch1"
         android:layout_width="wrap_content"
@@ -38,11 +18,38 @@
         android:text="@string/what_does_this_do"
         android:textSize="16sp" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
+
+    <CheckBox
+        android:id="@+id/checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_columnWeight="1"
+        android:layout_marginTop="8dp"
         android:gravity="fill"
+        android:text="@string/checkbox"
+        android:textSize="16sp" />
+
+    <RadioButton
+        android:id="@+id/radioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_marginTop="16dp"
+        android:gravity="fill"
+        android:text="@string/radiobutton"
+        android:textSize="16sp" />
+
+
+    <ImageButton
+        android:id="@+id/photo_imageButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_marginTop="16dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:elevation="2dp"
+        android:scaleType="centerCrop"
         android:src="@android:drawable/ic_menu_camera" />
+
 </GridLayout>

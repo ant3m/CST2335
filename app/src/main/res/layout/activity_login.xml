@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,11 +9,12 @@
     tools:context="com.stan.androidlabs.LoginActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/login_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
         android:text="@string/login"
-        android:textSize="16sp" />
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/login_editText"
@@ -25,12 +27,13 @@
         android:inputType="textEmailAddress" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/password_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
         android:layout_marginTop="16dp"
         android:text="@string/password"
-        android:textSize="16sp" />
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/password_editText"
@@ -38,6 +41,22 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:hint="@string/password"
         android:inputType="textPassword" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/login_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/colorAccent"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@android:drawable/ic_menu_send"
+        android:theme="@style/Widget.Design.FloatingActionButton"
+        android:visibility="visible"
+        app:elevation="4dp"
+        app:fabSize="normal" />
 
 </LinearLayout>
