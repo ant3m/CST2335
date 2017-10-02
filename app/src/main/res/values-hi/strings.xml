@@ -9,7 +9,7 @@
     <string name="radiobutton">RadioButton</string>
     <string name="checkbox">CheckBox</string>
     <string name="what_does_this_do">Ye kya karta hai?</string>
-    <string name="dialog_message">Do you want to finish the activity?</string>
-    <string name="dialog_title">Finish?</string>
-    <string name="dialog_postive">Yes</string>
+    <string name="dialog_message">Activity khatam karna chahte hai?</string>
+    <string name="dialog_title">Khatam?</string>
+    <string name="dialog_postive">Haan</string>
 </resources>
