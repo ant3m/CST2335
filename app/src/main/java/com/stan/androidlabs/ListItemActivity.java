@@ -1,14 +1,21 @@
 package com.stan.androidlabs;
 
 
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
+import android.widget.Switch;
+import android.widget.Toast;
 
 public class ListItemActivity extends AppCompatActivity {
 
@@ -25,6 +32,10 @@ public class ListItemActivity extends AppCompatActivity {
 
         ImageButton photoButton = findViewById(R.id.photo_imageButton);
 
+        Switch toastSwitch = findViewById(R.id.switch1);
+
+        CheckBox dialogCheckBox = findViewById(R.id.checkBox);
+
         photoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -34,6 +45,53 @@ public class ListItemActivity extends AppCompatActivity {
                 }
             }
 
+        });
+
+        toastSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked) {
+                    CharSequence text = "Switch is On!";
+                    int duration = Toast.LENGTH_SHORT;
+
+                    Toast toast = Toast.makeText(getApplicationContext(), text, duration);
+                    toast.show();
+                } else {
+                    CharSequence text = "Switch is Off!";
+                    int duration = Toast.LENGTH_LONG;
+
+                    Toast toast = Toast.makeText(getApplicationContext(), text, duration);
+                    toast.show();
+                }
+            }
+        });
+
+        dialogCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(ListItemActivity.this);
+                    builder.setMessage(R.string.dialog_message)
+                            .setTitle(R.string.dialog_title)
+                            .setPositiveButton(R.string.dialog_positive, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+
+                                    Intent resultIntent = new Intent();
+                                    resultIntent.putExtra("Response", "ListItemActivity passed: My information to share");
+                                    setResult(Activity.RESULT_OK, resultIntent);
+                                    finish();
+                                }
+                            })
+                            .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+
+                                }
+                            })
+                            .show();
+                }
+            }
         });
     }
 

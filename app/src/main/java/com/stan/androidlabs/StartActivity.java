@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class StartActivity extends AppCompatActivity {
 
@@ -20,6 +21,7 @@ public class StartActivity extends AppCompatActivity {
 
         Button button = findViewById(R.id.main_button);
 
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -28,12 +30,19 @@ public class StartActivity extends AppCompatActivity {
                 startActivityForResult(intent, REQUEST_CODE);
             }
         });
+
+
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_CODE) {
+        if (requestCode == REQUEST_CODE && resultCode == RESULT_OK) {
             Log.i(ACTIVITY_NAME, "Returned to startActivity.onActivityResult");
+
+            String messagePassed = data.getStringExtra("Response");
+
+            Toast toast = Toast.makeText(getApplicationContext(), messagePassed, Toast.LENGTH_SHORT);
+            toast.show();
         }
     }
 
