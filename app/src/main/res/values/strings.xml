@@ -11,4 +11,6 @@
     <string name="dialog_message">Do you want to finish the activity?</string>
     <string name="dialog_title">Finish?</string>
     <string name="dialog_positive">Yes</string>
+    <string name="start_chat">Start Chat</string>
+    <string name="send_button">Send</string>
 </resources>

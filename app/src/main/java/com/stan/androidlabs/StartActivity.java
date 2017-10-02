@@ -20,6 +20,7 @@ public class StartActivity extends AppCompatActivity {
         Log.i(ACTIVITY_NAME, "In onCreate()");
 
         Button button = findViewById(R.id.main_button);
+        Button chatButton = findViewById(R.id.chat_button);
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -31,6 +32,15 @@ public class StartActivity extends AppCompatActivity {
             }
         });
 
+        chatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Log.i(ACTIVITY_NAME, "User clicked chat button");
+                Intent intent = new Intent(getApplicationContext(), ChatWindow.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

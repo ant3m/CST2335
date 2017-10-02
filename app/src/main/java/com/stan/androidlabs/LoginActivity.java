@@ -1,5 +1,6 @@
 package com.stan.androidlabs;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,7 +13,12 @@ import android.widget.EditText;
 public class LoginActivity extends AppCompatActivity {
 
     protected static final String ACTIVITY_NAME = "LoginActivity";
-    protected static final String DEFAULT_EMAIL = "email@domain.com";
+    protected static final String SETTINGS = "com.example.stan.lab1.settings";
+    protected static final String SAVED_EMAIL = "savedEmail";
+
+    private String defaultEmail = "email@domain.com";
+    private EditText emailEditText;
+    private FloatingActionButton loginButton;
 
 
 
@@ -21,30 +27,41 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        FloatingActionButton loginButton = findViewById(R.id.login_fab);
-        final EditText emailEditText = findViewById(R.id.login_editText);
+        loginButton = findViewById(R.id.login_fab);
+        emailEditText = findViewById(R.id.login_editText);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                SharedPreferences preferences = getSharedPreferences("EMAIL_ID", MODE_PRIVATE);
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.putString("email", emailEditText.getText().toString());
-                editor.commit();
-
-                String newEmail = preferences.getString("email", "");
-
-                emailEditText.setText(newEmail);
+                saveLoginData();
 
                 Intent intent = new Intent(getApplicationContext(), StartActivity.class);
                 startActivity(intent);
             }
         });
 
+        loadLoginData();
+
         Log.i(ACTIVITY_NAME, "In onCreate()");
 
 
+    }
+
+    private void saveLoginData() {
+        SharedPreferences preferences = getSharedPreferences(SETTINGS, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        defaultEmail = emailEditText.getText().toString();
+        editor.putString(SAVED_EMAIL, defaultEmail);
+        editor.commit();
+    }
+
+    private void loadLoginData() {
+        SharedPreferences preferences = getSharedPreferences(SETTINGS, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        defaultEmail = preferences.getString(SAVED_EMAIL, defaultEmail);
+        editor.commit();
+        emailEditText.setText(defaultEmail);
     }
 
 

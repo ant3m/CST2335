@@ -12,4 +12,6 @@
     <string name="dialog_message">Activity khatam karna chahte hai?</string>
     <string name="dialog_title">Khatam?</string>
     <string name="dialog_postive">Haan</string>
+    <string name="start_chat">Chat shuru</string>
+    <string name="send_button">Bhej</string>
 </resources>
