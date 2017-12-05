@@ -5,43 +5,65 @@
     android:layout_height="match_parent"
     android:layout_alignParentStart="true"
     android:layout_alignParentTop="true"
-    android:layout_marginBottom="8dp"
-    android:layout_marginLeft="8dp"
-    android:layout_marginRight="8dp"
-    android:layout_marginTop="8dp"
+
     tools:context="com.stan.androidlabs.ChatWindow">
+
 
     <ListView
         android:id="@+id/chat_listView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/send_button"
+        android:layout_above="@+id/view"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:divider="@android:color/background_light"
         android:footerDividersEnabled="false"
         android:headerDividersEnabled="false"
         android:scrollbars="none">
 
     </ListView>
 
-    <EditText
-        android:id="@+id/chat_editText"
-        android:layout_width="344dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/chat_listView"
-        android:layout_toStartOf="@+id/send_button"
-        android:ems="10"
-        android:inputType="textPersonName" />
+    A horizontal line between the chatbox and RecyclerView
 
-    <ImageButton
-        android:id="@+id/send_button"
-        android:layout_width="wrap_content"
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_above="@+id/layout_chatbox"
+        android:background="#dfdfdf" />
+
+    <LinearLayout
+        android:id="@+id/layout_chatbox"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:background="@drawable/send_shape"
-        android:elevation="4dp"
-        android:src="@drawable/ic_forum_black_18dp" />
+        android:background="#ffffff"
+        android:minHeight="48dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editText_chat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:hint="@string/start_chat"
+            android:maxLines="6" />
+
+        <Button
+            android:id="@+id/send_button"
+            android:layout_width="64dp"
+            android:layout_height="48dp"
+            android:layout_gravity="bottom"
+            android:background="#ffffff"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/send_button"
+            android:textSize="18sp" />
+    </LinearLayout>
+
 </RelativeLayout>
