@@ -14,8 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -26,7 +26,7 @@ public class ChatWindow extends AppCompatActivity {
     private static SQLiteDatabase chatDB;
     private static String ACTIVITY_NAME = "ChatWindow.java";
     private ListView chatList;
-    private ImageButton sendButton;
+    private Button sendButton;
     private EditText sendEditText;
     private ArrayList<String> chatArrayList = new ArrayList<>();
     private ChatAdapter mChatAdapter;
@@ -48,7 +48,7 @@ public class ChatWindow extends AppCompatActivity {
         mChatAdapter = new ChatAdapter(this);
         chatList.setAdapter(mChatAdapter);
         sendButton = findViewById(R.id.send_button);
-        sendEditText = findViewById(R.id.chat_editText);
+        sendEditText = findViewById(R.id.editText_chat);
 
         Cursor mCursor = chatDB.rawQuery("Select * from " + ChatDatabaseHelper.TABLE_NAME, null);
 
@@ -113,11 +113,11 @@ public class ChatWindow extends AppCompatActivity {
         public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
             LayoutInflater inflater = ChatWindow.this.getLayoutInflater();
-            View result = null;
+            View result;
             if (position % 2 == 0) {
-                result = inflater.inflate(R.layout.chat_row_incoming, null);
-            } else {
                 result = inflater.inflate(R.layout.chat_row_outgoing, null);
+            } else {
+                result = inflater.inflate(R.layout.chat_row_incoming, null);
             }
             TextView message = result.findViewById(R.id.messageText);
             message.setText(getItem(position));

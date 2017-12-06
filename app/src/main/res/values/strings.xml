@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Lab1</string>
-    <string name="hello_message">Hello World!</string>
-    <string name="button_text">I\'m a button</string>
+    <string name="app_name">CST2335</string>
+    <string name="hello_message">CST2335 Graphical Interface Programming</string>
+    <string name="button_text">Enter</string>
     <string name="login">Login</string>
     <string name="login_name">Login Name</string>
     <string name="password">Password</string>
@@ -11,6 +11,6 @@
     <string name="dialog_message">Do you want to finish the activity?</string>
     <string name="dialog_title">Finish?</string>
     <string name="dialog_positive">Yes</string>
-    <string name="start_chat">Start Chat</string>
+    <string name="start_chat">Enter Message</string>
     <string name="send_button">Send</string>
 </resources>

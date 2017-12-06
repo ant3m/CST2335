@@ -6,6 +6,7 @@
     android:layout_alignParentStart="true"
     android:layout_alignParentTop="true"
 
+    android:background="@color/colorPrimary"
     tools:context="com.stan.androidlabs.ChatWindow">
 
 
